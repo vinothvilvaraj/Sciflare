@@ -1,0 +1,66 @@
+table.my-table {
+  border: none;
+  border-collapse: collapse;
+  width: 60%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tbody.my-table.body th {
+  border: black solid 0.5px;
+  background-color: #5DADE2;
+  color: white;
+  height: 45px;
+
+}
+
+tbody.my-table.body tr:nth-child(odd) {
+  border: white solid 2px;
+  border-left: none;
+  height: 40px;
+  background-color:#ECF0F1;
+  color: black;
+}
+tbody.my-table.body tr:nth-child(even) {
+  border: white solid 2px;
+  border-left: none;
+  height: 40px;
+  background-color:#B3B6B7;
+  color: black;
+}
+
+tbody.my-table.body tr td {
+  border: white solid 2px;
+}
+
+.no-found {
+  color: red;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px 0px;
+}
+
+.add-class{
+
+  border-radius: 15px;
+}
+
+.br-radius{
+  border-radius: 15px;
+}
+
+.btn-position{
+  margin-left: 52%;
+  margin-top: 3%;
+}
+
+.tab-bdy{
+  overflow: auto;
+  height: 1%;
+}
+
+.disabled-section {
+  pointer-events: none;
+  cursor: not-allowed;
+}

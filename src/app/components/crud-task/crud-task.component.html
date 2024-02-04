@@ -1,0 +1,51 @@
+<!-- <p>crud-task works!</p> -->
+<div [ngClass]="{  'disabled-section': addModal}">
+  <app-loader [loader]="list_loader"></app-loader>
+<div class="btn-position">
+  <label>
+    <input type="text" name="das_eng_search_mapping"
+      id="das_eng_search_mapping" class="form-control" value="{{searchValue}}"
+      (keydown)="doEnterSearch($event)" placeholder="Search"
+      [(ngModel)]="searchValue" />
+  </label> &nbsp;
+  <button class="br-radius" type="button" class="btn btn-primary" (click)="addListPopup('add','')"> ADD LIST </button> &nbsp;
+  <button class="br-radius" (click)="logOut()" class="btn btn-danger" tooltip="Go to login"> LOG OUT </button>
+
+  </div>
+
+<br><br>
+
+<table class="my-table" *ngIf="userResult.length != 0">
+  <tbody class="my-table body">
+    <th>ID</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>City</th>
+    <th>Action</th>
+    <tr class="tab-bdy" *ngFor="let user of userResult">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.city}}</td>
+        <td>
+          <a class="btn btn-info theme-btn" title="Edit" tooltip="Edit" (click)="addListPopup('edit', user)">
+            <i class="fa fa-pencil-square-o"></i>
+          </a> &nbsp;
+          <a class="btn btn-danger " tooltip="View" (click)="goToDelete(user)">
+            <i class="fa fa-trash" title="view"></i>
+          </a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<div class="no-found" *ngIf="userResult?.length == 0 && list_loader == false">
+  <p >No Data found</p>
+</div>
+
+</div>
+
+<app-add-modal data-backdrop="static" *ngIf="addModal" [formLable]="formLable" (closeAddModal)="closeAModal()"
+[userData]="userData" (getAddEditData)="getData($event)" data-backdrop="static"></app-add-modal>
+
